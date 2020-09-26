@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import { Button } from '@material-ui/core';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+
+import SignIn from './components/Auth/signin.component';
+import SignUp from './components/Auth/signup.component';
+import Infinity from './components/infinitycss.component';
+
+export default function App() {
+  // const history = useHistory();
+  // console.log(history);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={SignIn} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/infinity" component={Infinity} />
+
+        </Switch>
+
+      </BrowserRouter>
+
+
     </div>
   );
 }
 
-export default App;
+
